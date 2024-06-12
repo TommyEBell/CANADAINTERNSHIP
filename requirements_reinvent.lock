@@ -118,7 +118,7 @@ numpy==1.26.4
     #   tensorboardx
     #   torchvision
     #   xarray
-nvidia-cublas-cu12==12.2.4.5
+nvidia-cublas-cu12
     # via
     #   nvidia-cudnn-cu12
     #   nvidia-cusolver-cu12
