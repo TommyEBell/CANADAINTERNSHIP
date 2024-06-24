@@ -1,0 +1,58 @@
+{
+  "docking": {
+    "header": {
+      "logging": {
+        "logfile": "/home/tommyell/outputs/ADV_docking.log"
+      }
+    },
+    "ligand_preparation": {
+      "embedding_pools": [
+        {
+          "pool_id": "RDkit_pool",
+          "type": "RDkit",
+          "input": {
+            "standardize_smiles": false
+          }
+        }
+      ]
+    },
+    "docking_runs": [
+      {
+        "backend": "AutoDockVina",
+        "run_id": "AutoDockVina",
+        "input_pools": [
+          "RDkit_pool"
+        ],
+        "parameters": {
+          "binary_location": "/home/tommyell/miniconda3/bin/",
+          "parallelization": {
+            "number_cores": 100
+          },
+          "seed": 42,
+          "receptor_pdbqt_path": [
+            "/home/tommyell/CANADAINTERNSHIP/ADV_receptor.pdbqt"
+          ],
+          "number_poses": 2,
+          "search_space": {
+            "--center_x": -39.7,
+            "--center_y": 17,
+            "--center_z": 12.6,
+            "--size_x": 15,
+            "--size_y": 10,
+            "--size_z": 10
+          }
+        },
+        "output": {
+          "poses": {
+            "poses_path": "/home/tommyell/outputs/ADV_ligands_docked_AGENT.sdf",
+            "overwrite": false
+          },
+          "scores": {
+            "scores_path": "/home/tommyell/outputs/ADV_scores_AGENT.csv",
+            "overwrite": false
+          }
+        }
+      }
+    ]
+  }
+}
