@@ -1,8 +1,13 @@
-THIS FILE CONTAINS THE WORKFLOW TO USING REINVENT4 WITH AUTODOCK VINA AS A SCORING COMPONENT (ON CC).
-Workflow:
-<b/> Clone this repo </b>
-git clone https://github.com/TommyEBell/CANADAINTERNSHIP
-# install all software
+# This file Contains the worflow to using REINVENT4 with AutoDock Vina as a scoring component (on Compute Canada).
+
+## Workflow:
+<b/> Clone the repo </b>
+
+$git clone https://github.com/TommyEBell/CANADAINTERNSHIP
+
+<b/> install all software </b>
+
 chmod +x reinvent_install.sh
 ./reinvent_install.sh
+
 # Do test run to ensure everything is installed correctly
