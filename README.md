@@ -117,7 +117,7 @@ The parameters should already be correct (it is still recommended to check this)
 
 <b/> 3. Run RL on TL prior </b>
 
-The same RL configuration file as step 2 can be used but the agent must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
+The same RL configuration file as step 2 can be used, but the agent must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
 
 ### For other run modes see the REINVENT4 github repo for examples (https://github.com/MolecularAI/REINVENT4). 
 
