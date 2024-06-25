@@ -57,9 +57,6 @@ reinvent --help
 
 vina --version
 
-# clone REPO CONTAINING MOCK CONFIG FILES
-git clone https://github.com/TommyEBell/CANADAINTERNSHIP
-
 # Edit a file
 
 rm ~/REINVENT4/venv/lib/python3.11/site-packages/reinvent/runmodes/RL/reports/tensorboard.py
