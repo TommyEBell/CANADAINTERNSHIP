@@ -2,7 +2,7 @@
   "docking": {
     "header": {
       "logging": {
-        "logfile": "/home/tommyell/2xch_docking.log"
+        "logfile": "/home/tommyell/outputs/test_docking.log"
       }
     },
     "ligand_preparation": {
@@ -26,7 +26,7 @@
         "parameters": {
           "binary_location": "/home/tommyell/miniconda/bin/",
           "parallelization": {
-            "number_cores": 10
+            "number_cores": 5
           },
           "seed": 42,
           "receptor_pdbqt_path": [
@@ -44,11 +44,11 @@
         },
         "output": {
           "poses": {
-            "poses_path": "/home/tommyell/outputs/2xch_ligands_docked.sdf",
+            "poses_path": "/home/tommyell/outputs/test_ligands_docked.sdf",
             "overwrite": false
           },
           "scores": {
-            "scores_path": "/home/tommyell/outputs/2xch_scores.csv",
+            "scores_path": "/home/tommyell/outputs/test_scores.csv",
             "overwrite": false
           }
         }

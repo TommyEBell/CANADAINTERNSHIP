@@ -2,7 +2,7 @@
 
 run_type = "transfer_learning"
 use_cuda = false
-tb_logdir = "tb_TL"  
+tb_logdir = "/home/tommyell/outputs/tb_TL"  
 
 [parameters]
 
@@ -12,7 +12,7 @@ batch_size = 50
 num_refs = 50  
 sample_batch_size = 50  
 
-input_model_file = "reinvent.prior"
-smiles_file = "AID_1798002_actives.smi"
-output_model_file = "AID_1798002_actives.model"
-validation_smiles_file = "AID_1798002_actives.smi"  
+input_model_file = "/home/tommyell/REINVENT4/priors/reinvent.prior"
+smiles_file = "/home/tommyell/CANADAINTERNSHIP/TL_smiles.smi"
+output_model_file = "/home/tommyell/CANADAINTERNSHIP/reinvent_TL_2xch.model"
+validation_smiles_file = "/home/tommyell/CANADAINTERNSHIP/TL_smiles.smi"
