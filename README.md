@@ -3,14 +3,21 @@
 ## Workflow:
 <b/> 1. Clone the repo </b>
 ```shell
+cd /$HOME
 git clone https://github.com/TommyEBell/CANADAINTERNSHIP
 ```
-<b/> 2. Install all software </b>
+<b/> 2. Move the installation script </b>
+```shell
+cd CANADAINTERNSHIP
+mv reinvent_install.sh /$HOME
+cd /$HOME
+```
+<b/> 3. Install all software </b>
 ```shell
 chmod +x reinvent_install.sh
 ./reinvent_install.sh
 ```
-<b/> 3. Test run to ensure all software installations were successful </b>
+<b/> 4. Test run to ensure all software installations were successful </b>
 ```shell
 cd /$SCRATCH
 sbatch /$HOME/CANADAINTERNSHIP/job_script_test.sh
