@@ -92,16 +92,19 @@ Also ensure the file location paths are correct before running.
 
 ## Specific workflow to reproduce the article data
 <b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 gpu and cpu (GPU parallelisation not yet avaiable so only increase CPUS for it to run faster).
+
 <b/> 1. Run TL </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/TL_setup.toml
 ```
 Parameters an file paths should already be correct (it is still recommended to check this). This should take around ___ with ____.
+
 <b/> 2. Run RL on reinvent prior </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch.toml
 ```
 The parameters should already be correct (it is still recommended to check this). This should take around 25hrs on 100 CPUs. This can be run simultaneously with step 1.
+
 <b/> 3. Run RL on TL prior </b>
 The same RL configuration file as step 2 can be used but the ____ must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
 
