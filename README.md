@@ -17,11 +17,6 @@ sbatch /$HOME/CANADAINTERNSHIP/job_script_test.sh
 ```
 Once this has finished running (takes no more than 10 minutes), nano the slurm file to check for any errors. Given there is none, the software is successfully installed for use.
 
-## Worflow to reproduce REINVENT article: 
-Article link: https://link.springer.com/article/10.1186/s13321-024-00812-5#MOESM1
-
-
-
 ## Workflow for general use:
 
 In your job scripts, you use always include the code below which activates the virtual environments required to run REINVENT4 and DockStream. 
@@ -44,7 +39,7 @@ To convert your protein targets file from pdb to pdbqt run the following command
 ```shell
 /$HOME/miniconda/envs/DockStream/bin/python /$HOME/DockStream/target_preparator.py -conf {target_prep_path}
 ```
-An example of a target preparation configuration file is CANADAINTERNSHIP/2xch_target_preperation.json, which is set up for the 2xch.pdb file (used in the REINVENT4 article). In the majority of cases only the locations of the files should be changed in the target preparation file.
+An example of a target preparation configuration file is CANADAINTERNSHIP/2xch_target_preperation.json, which is set up for the 2xch.pdb file (used in the REINVENT4 article: https://link.springer.com/article/10.1186/s13321-024-00812-5#MOESM1). In the majority of cases only the locations of the files should be changed in the target preparation file.
 
 Target preparation also finds the location of the ligand inputted in the configuration file, where the centre co-ordinates and 'box' of the ligand are given in the target preparation log file. Here is an example:
 ```
@@ -93,11 +88,22 @@ This example is also configured for 2xch (used in the article). In this configur
 * max_steps - The number of steps/epoch in the RL run.
 Also ensure the file location paths are correct before running.
 
-<b/> NOTE: </b> When running RL this takes a significant amount of time, for the configuration used in the article (RL_setup_2xch.toml) it required 20-30hrs with 100CPUs, when changing the number of CPUs in the sbatch file, they will not be utilised unless number_cores is altered in the docking configuration file.
+<b/> NOTE: </b> When running RL this takes a significant amount of time, for the configuration used in the article (RL_setup_2xch.toml) it required ~25hrs with 100CPUs, when changing the number of CPUs in the sbatch file, they will not be utilised unless number_cores is altered in the docking configuration file.
 
 ## Specific workflow to reproduce the article data
-
-
+<b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 gpu and cpu (GPU parallelisation not yet avaiable so only increase CPUS for it to run faster).
+<b/> 1. Run TL </b>
+```shell
+reinvent /$HOME/CANADAINTERNSHIP/TL_setup.toml
+```
+Parameters an file paths should already be correct (it is still recommended to check this). This should take around ___ with ____.
+<b/> 2. Run RL on reinvent prior </b>
+```shell
+reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch.toml
+```
+The parameters should already be correct (it is still recommended to check this). This should take around 25hrs on 100 CPUs. This can be run simultaneously with step 1.
+<b/> 3. Run RL on TL prior </b>
+The same RL configuration file as step 2 can be used but the ____ must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
 
 ### For other run modes see the REINVENT4 github repo for examples (https://github.com/MolecularAI/REINVENT4). 
 
