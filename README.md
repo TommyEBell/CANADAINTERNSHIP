@@ -86,8 +86,8 @@ To run reinforcement learning run the code:
 reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch.toml
 ```
 This example is also configured for 2xch (used in the article). In this configuration file, commonly altered variables include:
-* agent_file - ##################################
-* prior_file - ##################################
+* agent_file - The model/prior that is being improved.
+* prior_file - The base model/prior.
 * batch_size - The number of SMILES being generated for each step/epoch.
 * sigma - The scaling factor of the score in the calculation of the augmented NLL (see article).
 * rate - learning rate.
@@ -105,7 +105,7 @@ Also ensure the file location paths are correct before running.
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/TL_setup.toml
 ```
-Parameters an file paths should already be correct (it is still recommended to check this). This should take around ___ with ____.
+Parameters an file paths should already be correct (it is still recommended to check this). This is not a long process (less than half an hour with 5 cores).
 
 
 <b/> 2. Run RL on reinvent prior </b>
@@ -117,7 +117,7 @@ The parameters should already be correct (it is still recommended to check this)
 
 <b/> 3. Run RL on TL prior </b>
 
-The same RL configuration file as step 2 can be used but the ____ must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
+The same RL configuration file as step 2 can be used but the agent must be changed first. You MUST wait for step 1 to finish as this requires the outputted model from it.
 
 ### For other run modes see the REINVENT4 github repo for examples (https://github.com/MolecularAI/REINVENT4). 
 
