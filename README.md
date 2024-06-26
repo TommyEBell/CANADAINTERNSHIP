@@ -29,7 +29,7 @@ Once this has finished running (takes no more than 10 minutes), nano the slurm f
 In your job scripts, you use always include the code below which activates the virtual environments required to run REINVENT4 and DockStream. 
 
 ```shell
-cd /home/tommyell/REINVENT4/
+cd /$HOME/REINVENT4/
 
 source venv/bin/activate
 source activate DockStream
