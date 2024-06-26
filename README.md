@@ -1,6 +1,6 @@
 # This file Contains the workflow for using REINVENT4 with AutoDock Vina as a scoring component (on Compute Canada).
 
-## Workflow:
+## Installation:
 <b/> 1. Clone the repo </b>
 ```shell
 cd /$HOME
