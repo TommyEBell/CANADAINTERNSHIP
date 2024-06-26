@@ -123,5 +123,82 @@ reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch_TL.toml
 ```
 You <b/>MUST</b> wait for step 1 to finish as this requires the outputted model from it.
 
+
+Once these runs have finished, the 2 files you need are named 2xch_rl_TL1.csv and 2xch_rl_1.csv as well as the 2 directories 2xch_rl/ and 2xch_rl_TL/. These can be found at /$HOME/outputs/. The rest of the files are outputs from the DockStream calculations. the .csv files contains all the SMILEs as well as their score breakdowns e.g:
+
+
+##############
+#############
+###########
+
+
+
+To get to compare the cumulative number of hits between the two models run the code given below, ensuring the paths to the two .csv files are altered.
+```shell
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def count_hits(csv_file):
+    # Load the data from the CSV file
+    df = pd.read_csv(csv_file)
+
+    # Initialize a dictionary to store the counts for each step
+    counts = {}
+
+    # Initialize a counter for the cumulative hits
+    cumulative_hits = 0
+
+    # Loop over the steps
+    for step in range(1, 51):
+        # Select the rows for the current step
+        df_step = df[df['step'] == step]
+    
+        # Apply the conditions on 'Docking into 2XCH grid (raw)' and 'QED (raw)'
+        condition = (df_step['Docking into 2XCH grid (raw)'] < -8) & (df_step['QED (raw)'] > 0.7)
+    
+        # Count the number of rows that meet the conditions
+        hits = condition.sum()
+
+        # Add the hits to the cumulative hits
+        cumulative_hits += hits
+
+        # Store the cumulative hits in the dictionary
+        counts[step] = cumulative_hits
+
+    return counts
+
+# Use the function to process the two CSV files - 'your_input' REQUIRED HERE
+counts1 = count_hits('PUT_TL_CSV_FILE_PATH_HERE')
+counts2 = count_hits('PUT_STANDARD_RL_CSV_FILE_PATH_HERE')
+
+# Convert the dictionaries to lists
+steps = list(counts1.keys())
+hits_counts1 = list(counts1.values())
+hits_counts2 = list(counts2.values())
+
+# Create a bar plot
+plt.figure(figsize=(10, 6))
+plt.plot(steps, hits_counts1, color='blue', alpha=0.5, label='TL')
+plt.plot(steps, hits_counts2, color='red', alpha=0.5, label='base prior')
+
+# Add labels and title
+plt.xlabel('Step')
+plt.ylabel('Cumulative Number of Hits')
+plt.title('Cumulative Number of Hits with Docking < -8 and QED > 0.7 for each step')
+plt.legend()
+
+# Show the plot
+plt.show()
+```
+The directories outputed can be used to visualise a variety of data, the code requried to do so is given below (ensure you change the directory path as required):
+```shell
+# Load the TensorBoard notebook extension
+%load_ext tensorboard
+
+# Start TensorBoard within the notebook using magics function
+%tensorboard --logdir 'PATH_TO_DIRECTORY/2xch_rl_TL/'
+```
+
+
 ### For other run modes see the REINVENT4 github repo for examples (https://github.com/MolecularAI/REINVENT4). 
 
