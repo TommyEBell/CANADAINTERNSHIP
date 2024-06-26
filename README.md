@@ -124,13 +124,7 @@ reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch_TL.toml
 You <b/>MUST</b> wait for step 1 to finish as this requires the outputted model from it.
 
 
-Once these runs have finished, the 2 files you need are named 2xch_rl_TL1.csv and 2xch_rl_1.csv as well as the 2 directories 2xch_rl/ and 2xch_rl_TL/. These can be found at /$HOME/outputs/. The rest of the files are outputs from the DockStream calculations. the .csv files contains all the SMILEs as well as their score breakdowns e.g:
-
-
-##############
-#############
-###########
-
+Once these runs have finished, the 2 files you need are named 2xch_rl_TL1.csv and 2xch_rl_1.csv as well as the 2 directories 2xch_rl/ and 2xch_rl_TL/. These can be found at /$HOME/outputs/. The rest of the files are outputs from the DockStream calculations. the .csv files contains all the SMILEs as well as their score breakdowns.
 
 
 To get to compare the cumulative number of hits between the two models run the code given below, ensuring the paths to the two .csv files are altered.
