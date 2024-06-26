@@ -98,21 +98,23 @@ Also ensure the file location paths are correct before running.
 <b/> NOTE: </b> When running RL this takes a significant amount of time, for the configuration used in the article (RL_setup_2xch.toml) it required ~25hrs with 100CPUs, when changing the number of CPUs in the sbatch file, they will not be utilised unless number_cores is altered in the docking configuration file.
 
 ## Specific workflow to reproduce the article data
-<b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 gpu and cpu (GPU parallelisation not yet avaiable so only increase CPUS for it to run faster), the job_script_test.sh can be used as an example of what job script shell file should look like. <b/>V.IMPT:</b> When altering CPU number ensure you change the number of CPUs DockStream can use by changing number_cores in /$HOME/CANADAINTERNSHIP/2xch_docking_config.json.
+<b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 GPU and CPU (GPU parallelisation not yet avaiable so only increase CPUs for it to run faster), the job_script_test.sh file can be used as an example of what a job script shell file should look like. <b/>V.IMPT:</b> When altering CPU number ensure you change the number of CPUs DockStream can use by changing number_cores in /$HOME/CANADAINTERNSHIP/2xch_docking_config.json.
+
+All file paths should have been automatically altered to match your directory but this should be checked to verify.
 
 
 <b/> 1. Run TL </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/TL_setup.toml
 ```
-Parameters and file paths should already be correct (it is still recommended to check this). This is not a long process (less than half an hour with 5 cores).
+This is not a long process (less than half an hour with 5 cores).
 
 
 <b/> 2. Run RL on reinvent prior </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch.toml
 ```
-The parameters should already be correct (it is still recommended to check this). This should take around 25hrs on 100 CPUs. This can be run simultaneously with step 1.
+This should take around 25hrs on 100 CPUs. This can be run simultaneously with step 1.
 
 
 <b/> 3. Run RL on TL prior </b>
