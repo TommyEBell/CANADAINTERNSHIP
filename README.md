@@ -39,7 +39,7 @@ cd /$SCRATCH
 module reset
 module load StdEnv/2023 cuda/12.2 python/3.11.5 rdkit
 ```
-
+All output files for the runs prepared in this repo have been directed to /$HOME/outputs/ 
 ### (Target) preperation
 
 To convert your protein targets file from pdb to pdbqt run the following command:
