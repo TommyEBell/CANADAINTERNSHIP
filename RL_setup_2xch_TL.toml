@@ -1,13 +1,13 @@
 version = 4
 run_type = "staged_learning"
 use_cuda = true
-output_csv = "/home/tommyell/outputs/2xch_rl_.csv"
-tb_logdir = "/home/tommyell/outputs/2xch_rl"  
+output_csv = "/home/tommyell/outputs/2xch_rl_TL.csv"
+tb_logdir = "/home/tommyell/outputs/2xch_rl_TL"  
 
 [parameters]
 use_checkpoint = false  
 summary_csv_prefix = "/home/tommyell/outputs/2xch_rl"
-agent_file = "/home/tommyell/REINVENT4/priors/reinvent.prior"
+agent_file = "/home/tommyell/CANADAINTERNSHIP/reinvent_TL_2xch.model"
 prior_file = "/home/tommyell/REINVENT4/priors/reinvent.prior"
 
 batch_size = 128          
@@ -27,7 +27,7 @@ bucket_size = 50
 minscore = 0.4
 
 [[stage]]
-chkpt_file = '/home/tommyell/CANADAINTERNSHIP/rl_direct.chkpt'
+chkpt_file = '/home/tommyell/CANADAINTERNSHIP/rl_direct_TL.chkpt'
 termination = "simple"
 max_steps = 50
 
