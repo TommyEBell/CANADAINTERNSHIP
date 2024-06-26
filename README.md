@@ -98,7 +98,7 @@ Also ensure the file location paths are correct before running.
 <b/> NOTE: </b> When running RL this takes a significant amount of time, for the configuration used in the article (RL_setup_2xch.toml) it required ~25hrs with 100CPUs, when changing the number of CPUs in the sbatch file, they will not be utilised unless number_cores is altered in the docking configuration file.
 
 ## Specific workflow to reproduce the article data
-<b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 gpu and cpu (GPU parallelisation not yet avaiable so only increase CPUS for it to run faster), the job_script_test.sh can be used as an example of what job script shell file should look like.
+<b/> Prefaces: </b> For each of the code given, they should be run in seperate job script files and run via sbatch with at least 1 gpu and cpu (GPU parallelisation not yet avaiable so only increase CPUS for it to run faster), the job_script_test.sh can be used as an example of what job script shell file should look like. <b/>V.IMPT:</b> When altering CPU number ensure you change the number of CPUs DockStream can use by changing number_cores in /$HOME/CANADAINTERNSHIP/2xch_docking_config.json.
 
 
 <b/> 1. Run TL </b>
@@ -116,10 +116,10 @@ The parameters should already be correct (it is still recommended to check this)
 
 
 <b/> 3. Run RL on TL prior </b>
-
-This step used the same RL configuration file as step 2, <b/> but the agent must be changed first </b>. You MUST wait for step 1 to finish as this requires the outputted model from it. The names of the <b/> output files should also be changed </b> to prevent data being overwritten.
-
-
+```shell
+reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch_TL.toml
+```
+You <b/>MUST</b> wait for step 1 to finish as this requires the outputted model from it.
 
 ### For other run modes see the REINVENT4 github repo for examples (https://github.com/MolecularAI/REINVENT4). 
 
