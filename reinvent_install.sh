@@ -53,7 +53,7 @@ cd ~/
 
 # check installs
 
-reinvent --help
+reinvent --version
 
 vina --version
 
