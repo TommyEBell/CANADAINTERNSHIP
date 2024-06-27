@@ -57,12 +57,6 @@ reinvent --version
 
 vina --version
 
-# Edit a file
-
-rm ~/REINVENT4/venv/lib/python3.11/site-packages/reinvent/runmodes/RL/reports/tensorboard.py
-
-mv ~/CANADAINTERNSHIP/tensorboard.py ~/REINVENT4/venv/lib/python3.11/site-packages/reinvent/runmodes/RL/reports/
-
 # make outputs directory
 
 mkdir outputs
