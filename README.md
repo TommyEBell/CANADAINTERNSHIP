@@ -103,25 +103,19 @@ Also ensure the file location paths are correct before running.
 All file paths should have been automatically altered to match your directory but this should be checked to verify.
 
 
-<b/> 1. Run TL </b>
-```shell
-reinvent /$HOME/CANADAINTERNSHIP/TL_setup.toml
-```
-This is not a long process (less than half an hour with 5 cores).
 
-
-<b/> 2. Run RL on reinvent prior </b>
+<b/> 1. Run RL on reinvent prior </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch.toml
 ```
-This should take around 25hrs on 100 CPUs. This can be run simultaneously with step 1.
+This should take around 25hrs on 100 CPUs.
 
 
-<b/> 3. Run RL on TL prior </b>
+<b/> 2. Run RL on TL prior </b>
 ```shell
 reinvent /$HOME/CANADAINTERNSHIP/RL_setup_2xch_TL.toml
 ```
-You <b/>MUST</b> wait for step 1 to finish as this requires the outputted model from it.
+Both these steps can be run at the same time.
 
 
 Once these runs have finished, the 2 files you need are named 2xch_rl_TL1.csv and 2xch_rl_1.csv as well as the 2 directories 2xch_rl/ and 2xch_rl_TL/. These can be found at /$HOME/outputs/. The rest of the files are outputs from the DockStream calculations. the .csv files contains all the SMILEs as well as their score breakdowns.
